@@ -59,7 +59,7 @@ h1 {
   color: var(--green);
 }
 
-.cards-conatiner {
+.cards-container {
   padding: 1rem 1rem;
   border-radius: 5px;
   display: grid;
