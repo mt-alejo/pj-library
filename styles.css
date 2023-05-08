@@ -5,6 +5,13 @@
   /* border: 1px solid blue; */
 }
 
+:root {
+  --green: rgb(100, 153, 20);
+  --bk-gray: rgb(233, 233, 233);
+  --bk-milk: rgb(255, 254, 240);
+  --border-milk: rgb(214, 214, 214);
+}
+
 i {
   font-size: 20px;
 }
@@ -13,11 +20,11 @@ section {
 }
 
 span {
-  color: rgb(100, 153, 20);
+  color: var(--green);
 }
 
 h1 {
-  color: rgb(100, 153, 20);
+  color: var(--green);
   font-family: "Quicksand", sans-serif;
 }
 
@@ -49,27 +56,29 @@ h1 {
 
 .nav-menu-container li a {
   text-decoration: none;
+  color: var(--green);
 }
 
 .cards-conatiner {
   padding: 1rem 1rem;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 49%);
   grid-template-rows: min-content;
   gap: 4px 10px;
   height: 500px;
   width: 50vw;
-  background-color: rgb(233, 233, 233);
+  background-color: var(--bk-gray);
   margin: auto;
   overflow: auto;
   scrollbar-base-color: gold;
   font-family: arial;
+  border: 1px solid var(--border-milk);
 }
 
 .book-card {
-  background-color: rgb(255, 254, 240);
-  border: 1px solid rgb(214, 214, 214);
+  background-color: var(--bk-milk);
+  border: 1px solid var(--border-milk);
   border-radius: 15px;
   display: flex;
   height: 145px;
@@ -93,4 +102,10 @@ h1 {
   position: absolute;
   top: 90%;
   left: 90%;
+}
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+  color: var(--green);
 }

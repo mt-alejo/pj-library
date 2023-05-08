@@ -30,13 +30,13 @@
   width: 16px;
   left: 2px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--bk-milk);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--green);
 }
 /* 
   input:focus + .slider {
