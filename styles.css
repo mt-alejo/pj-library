@@ -24,6 +24,12 @@ span {
 }
 
 h1 {
+  max-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  font-size: 18px;
   color: var(--green);
   font-family: "Quicksand", sans-serif;
 }
@@ -92,6 +98,11 @@ h1 {
   width: 85%;
   gap: 10px;
 }
+
+.book-card-text p {
+  font-size: 13px;
+}
+
 .book-card-inputs {
   display: flex;
   flex-direction: column;

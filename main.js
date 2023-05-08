@@ -23,7 +23,7 @@ const showNewCard = () => {
   const bookCardText = document.createElement("div");
   bookCardText.classList.add("book-card-text");
   const bookTitle = document.createElement("h1");
-  bookTitle.textContent = "Harry Potter";
+  bookTitle.textContent = "Harry Potter y la orden del fenix";
   const bookAuthor = document.createElement("p");
   bookAuthor.textContent = "By: Author";
   const bookPages = document.createElement("p");
