@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid blue; */
+}
+
+i {
+  font-size: 20px;
+}
+section {
+  padding-top: 20px;
+}
+
+span {
+  color: rgb(100, 153, 20);
+}
+
+h1 {
+  color: rgb(100, 153, 20);
+  font-family: "Quicksand", sans-serif;
+}
+
+.nav-container {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  font-family: "Quicksand", sans-serif;
+  border-bottom: 1px solid black;
+}
+
+.nav-brand {
+  width: 20vw;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
+}
+.nav-menu-container {
+  display: flex;
+}
+
+.nav-menu-container li {
+  padding: 1rem;
+  list-style: none;
+}
+
+.nav-menu-container li a {
+  text-decoration: none;
+}
+
+.cards-conatiner {
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: min-content;
+  gap: 4px 10px;
+  height: 500px;
+  width: 50vw;
+  background-color: rgb(233, 233, 233);
+  margin: auto;
+  overflow: auto;
+  scrollbar-base-color: gold;
+  font-family: arial;
+}
+
+.book-card {
+  background-color: rgb(255, 254, 240);
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 15px;
+  display: flex;
+  height: 145px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.book-card-text {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  gap: 10px;
+}
+.book-card-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#btn-add {
+  position: absolute;
+  top: 90%;
+  left: 90%;
+}
