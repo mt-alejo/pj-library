@@ -108,4 +108,11 @@ h1 {
   background-color: transparent;
   border: none;
   color: var(--green);
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.btn-close:hover {
+  font-weight: bold;
+  transition: 0.5s;
 }
