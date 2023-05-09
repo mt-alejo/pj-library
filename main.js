@@ -16,7 +16,14 @@ const render = () => {
   // }
   myLibrary.forEach((book) => {
     let bookCard = document.createElement("div");
-    bookCard.innerHTML = `<p>${book.title} by:${book.author}`;
+    bookCard.innerHTML = `<div class="card-header">
+      <h3 class="title">${book.title}</h3>
+      <h5 class="author">By: ${book.author}</h5>
+    </div>
+    <div class="card-body">
+      <p>${book.pages} pages</p>
+      <p class="read">${book.read ? "Read" : "Not read yet"}</p>
+    </div>`;
     libraryContainer.append(bookCard);
   });
 };
