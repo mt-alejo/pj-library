@@ -1,23 +1,29 @@
-{
-  /* <div class="book-card">
-    <div class="book-card-text">
-        <h1>Puss in bots</h1>
-        <p>By: Author</p>
-        <p>Pages: 00</p>
-        <p>ENGLISH</p>
-    </div>
-        <div class="book-card-inputs">
-        <button type="button" class="btn-close">❌</button>
-        <label class="switch">
-        <input type="checkbox" />
-        <span class="slider round"></span>
-        </label>
-</div> */
+const library = [];
+
+class CardBook {
+  constructor(title, author, pages, language, read) {
+    (this.title = title),
+      (this.author = author),
+      (this.pages = pages),
+      (this.read = read);
+  }
 }
 
-const cardsContainer = document.querySelector(".cards-container");
+const firstbook = new CardBook(
+  "Harry Potter",
+  "Authory",
+  200,
+  "English",
+  false
+);
+
+const addBookToLibrary = (book) => {
+  library.push(book);
+};
 
 const showNewCard = () => {
+  const cardsContainer = document.querySelector(".cards-container");
+
   const bookCard = document.createElement("div");
   bookCard.classList.add("book-card");
   const bookCardText = document.createElement("div");
@@ -49,8 +55,11 @@ const showNewCard = () => {
   bookCardText.append(bookTitle, bookAuthor, bookPages, bookLanguage);
   bookCard.append(bookCardText, bookCardInputs);
   cardsContainer.append(bookCard);
+
+  getBooks();
 };
 
+//CLOSE _ OPEN
 const formContainer = document.querySelector("#form-container");
 const btnCloseForm = document.querySelector("#form-close");
 btnCloseForm.addEventListener("click", () => {

@@ -28,28 +28,31 @@
       </nav>
     </header>
     <div id="form-container" class="form-container" >
-      <div class=" form-item">
+      <div class="form-item">
         <label for="book-title"> Book Title:</label>
-      <input type="text" name="book-title" id="book-title">
+      <input type="text" name="title">
       </div>
       <div class="form-item">
         <label for="book-author"> Book Author:</label>
-      <input type="text" name="book-author" id="book-author">
+      <input type="text" name="author">
       </div>
       <div id="input-pages">
         <label for="book-pages">Pages: </label>
-        <input type="number" name="book-pages" id="book-pages">
+        <input type="number" name="pages">
       </div>
       <div class="form-item">
         <label for="input-language">Language:</label>
-      <select name="input-language" id="input-language">
+      <select name="language">
         <option value="en">English</option>
         <option value="es">Spanish</option>
       </select>
       </div>
-      <div class="form-item">
+      <div class="form-item" style="margin-top: 1rem; margin-bottom: 2rem;">
         <p>Have you read it?</p>
-        <button class="btn-checkbox" type="checkbox"></button>
+        <label class="switch">
+          <input name="read" type="checkbox" />
+          <span class="slider round"></span>
+        </label>
       </div>
       <div class="form-item">
         <button class="btn-primary" onclick="showNewCard()">Add new book</button>
@@ -69,7 +72,7 @@
           <div class="book-card-inputs">
             <button type="button" class="btn-close">x</button>
           <label class="switch">
-            <input type="checkbox" />
+            <input id="input-switch" type="checkbox" />
             <span class="slider round"></span>
           </label>
           </div>
