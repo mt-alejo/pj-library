@@ -8,6 +8,18 @@ class Book {
       (this.read = read);
   }
 }
+let libraryContainer = document.querySelector("#library-container");
+
+const render = () => {
+  // for (let i = 0; i < myLibrary.length; i++) {
+  //   console.log("works");
+  // }
+  myLibrary.forEach((book) => {
+    let bookCard = document.createElement("div");
+    bookCard.innerHTML = `<p>${book.title} by:${book.author}`;
+    libraryContainer.append(bookCard);
+  });
+};
 
 const addBookToLibrary = () => {
   let title = document.querySelector("#title").value;
@@ -17,6 +29,8 @@ const addBookToLibrary = () => {
 
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+  libraryContainer.innerHTML = "";
+  render();
 };
 
 const formContainer = document.querySelector("#add-book-form");
@@ -29,5 +43,4 @@ btnOpenForm.addEventListener("click", () => {
 formContainer.addEventListener("submit", function () {
   event.preventDefault(); //There are not backend, the data keeps local
   addBookToLibrary();
-  console.log(myLibrary);
 });
