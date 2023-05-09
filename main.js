@@ -20,7 +20,14 @@ const addBookToLibrary = () => {
 };
 
 const formContainer = document.querySelector("#add-book-form");
-const btnAddBook = document.querySelector("#add-book-btn");
-btnAddBook.addEventListener("click", () => {
+const btnOpenForm = document.querySelector("#open-form-btn");
+btnOpenForm.addEventListener("click", () => {
   formContainer.style.display = "block";
+});
+
+//The eventListener for the FORM, not for the submit-button:
+formContainer.addEventListener("submit", function () {
+  event.preventDefault(); //There are not backend, the data keeps local
+  addBookToLibrary();
+  console.log(myLibrary);
 });
