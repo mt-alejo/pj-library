@@ -5,6 +5,7 @@ class CardBook {
     (this.title = title),
       (this.author = author),
       (this.pages = pages),
+      (this.language = language),
       (this.read = read);
   }
 }
@@ -16,12 +17,15 @@ const firstbook = new CardBook(
   "English",
   false
 );
+const secondBook = new CardBook("Merlina", "Authory", 100, "Spanish", true);
 
 const addBookToLibrary = (book) => {
   library.push(book);
 };
+addBookToLibrary(firstbook);
+addBookToLibrary(secondBook);
 
-const showNewCard = () => {
+const showNewCard = (book) => {
   const cardsContainer = document.querySelector(".cards-container");
 
   const bookCard = document.createElement("div");
@@ -29,13 +33,13 @@ const showNewCard = () => {
   const bookCardText = document.createElement("div");
   bookCardText.classList.add("book-card-text");
   const bookTitle = document.createElement("h1");
-  bookTitle.textContent = "Harry Potter y la orden del fenix";
+  bookTitle.textContent = book.title;
   const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = "By: Author";
+  bookAuthor.textContent = `By: ${book.author}`;
   const bookPages = document.createElement("p");
-  bookPages.textContent = "Pages: 00";
+  bookPages.textContent = `Pages: ${book.pages}`;
   const bookLanguage = document.createElement("p");
-  bookLanguage.textContent = "ENGLISH";
+  bookLanguage.textContent = `${book.language}`;
   const bookCardInputs = document.createElement("div");
   bookCardInputs.classList.add("book-card-inputs");
   const btnClose = document.createElement("button");
@@ -46,6 +50,9 @@ const showNewCard = () => {
   switchContainer.classList.add("switch");
   const switchInput = document.createElement("input");
   switchInput.setAttribute("type", "checkbox");
+  if (book.read) {
+    switchInput.checked = true;
+  }
   const switchSpan = document.createElement("span");
   switchSpan.classList.add("slider");
   switchSpan.classList.add("round");
@@ -55,9 +62,11 @@ const showNewCard = () => {
   bookCardText.append(bookTitle, bookAuthor, bookPages, bookLanguage);
   bookCard.append(bookCardText, bookCardInputs);
   cardsContainer.append(bookCard);
-
-  getBooks();
 };
+
+library.map((book) => {
+  showNewCard(book);
+});
 
 //CLOSE _ OPEN
 const formContainer = document.querySelector("#form-container");
