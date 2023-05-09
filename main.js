@@ -33,7 +33,7 @@ const showNewCard = () => {
   const bookCardInputs = document.createElement("div");
   bookCardInputs.classList.add("book-card-inputs");
   const btnClose = document.createElement("button");
-  btnClose.textContent = "❌";
+  btnClose.textContent = "x";
   btnClose.setAttribute("type", "button");
   btnClose.classList.add("btn-close");
   const switchContainer = document.createElement("label");
@@ -50,3 +50,13 @@ const showNewCard = () => {
   bookCard.append(bookCardText, bookCardInputs);
   cardsContainer.append(bookCard);
 };
+
+const formContainer = document.querySelector("#form-container");
+const btnCloseForm = document.querySelector("#form-close");
+btnCloseForm.addEventListener("click", () => {
+  formContainer.style.display = "none";
+});
+const btnOpenForm = document.querySelector("#form-open");
+btnOpenForm.addEventListener("click", () => {
+  formContainer.style.display = "block";
+});
