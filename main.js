@@ -76,6 +76,7 @@ formContainer.addEventListener("submit", () => {
   event.preventDefault();
   addBook();
   console.log(library);
+  formContainer.reset();
 });
 
 const btnOpenForm = document
@@ -84,4 +85,7 @@ const btnOpenForm = document
 
 const btnCloseForm = document
   .querySelector("#close-form-btn")
-  .addEventListener("click", () => (formContainer.style.display = "none"));
+  .addEventListener("click", () => {
+    formContainer.style.display = "none";
+    formContainer.reset();
+  });
