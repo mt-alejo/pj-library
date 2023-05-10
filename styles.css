@@ -119,16 +119,17 @@ h1 {
 .btn-close {
   background-color: transparent;
   border-radius: 40%;
-  color: var(--green);
   font-size: 20px;
-  transition: 0.5s;
+  transition: 0.3s;
   border: 1px solid transparent;
   width: 30px;
+  color: transparent;
 }
 
 .btn-close:hover {
-  background-color: var(--bk-gray);
-  transition: 0.5s;
+  background-color: rgb(255, 255, 255);
+  transition: 0.3s;
+  color: var(--green);
 }
 
 .btn-primary {
