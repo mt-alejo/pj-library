@@ -11,6 +11,7 @@ class Book {
 
 const libraryElement = document.querySelector("#library-container");
 
+//GET
 const render = () => {
   for (let index = 0; index < library.length; index++) {
     let book = library[index];
@@ -24,11 +25,11 @@ const render = () => {
           <p>${book.language}</p>
         </div>
         <div class="book-card-inputs">
-          <button type="button" class="btn-close">x</button>
+          <button type="button" onclick="removeCard(${index})" class="btn-close">x</button>
           <label class="switch">
-            <input id="input-switch" type="checkbox" ${
-              book.read ? 'checked="checked"' : ""
-            }/>
+            <input id="input-switch" onclick="toggleRead(${index})" type="checkbox" ${
+      book.read ? 'checked="checked"' : ""
+    }/>
             <span class="slider round"></span>
           </label>
         </div> `;
@@ -36,6 +37,7 @@ const render = () => {
   }
 };
 
+//POST
 const addBook = () => {
   let title = document.querySelector("#title").value;
   let author = document.querySelector("#author").value;
@@ -53,6 +55,20 @@ const addBook = () => {
 
 Book.prototype.toggleRead = function () {
   this.read = !this.read;
+};
+
+//UPDATE
+const toggleRead = (index) => {
+  library[index].toggleRead();
+  libraryElement.innerHTML = "";
+  render();
+};
+
+//DELETE
+const removeCard = (index) => {
+  library.splice(index, 1);
+  libraryElement.innerHTML = "";
+  render();
 };
 
 const formContainer = document.querySelector("#form-container");
