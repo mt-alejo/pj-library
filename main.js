@@ -14,8 +14,9 @@ const libraryElement = document.querySelector("#library-container");
 const render = () => {
   for (let index = 0; index < library.length; index++) {
     let book = library[index];
-    libraryElement.innerHTML = `   
-      <div class="book-card">
+    let bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+    bookCard.innerHTML = ` 
         <div class="book-card-text">
           <h1>${book.title}</h1>
           <p>By: ${book.author}</p>
@@ -25,10 +26,13 @@ const render = () => {
         <div class="book-card-inputs">
           <button type="button" class="btn-close">x</button>
           <label class="switch">
-            <input id="input-switch" type="checkbox"/>
+            <input id="input-switch" type="checkbox" ${
+              book.read ? 'checked="checked"' : ""
+            }/>
             <span class="slider round"></span>
           </label>
         </div> `;
+    libraryElement.append(bookCard);
   }
 };
 
@@ -45,6 +49,10 @@ const addBook = () => {
   libraryElement.innerHTML = "";
   render();
   formContainer.style.display = "none";
+};
+
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
 };
 
 const formContainer = document.querySelector("#form-container");
