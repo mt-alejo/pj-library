@@ -21,25 +21,14 @@ const render = () => {
   <div class="card-body">
     <p>${book.pages} pages</p>
     <p class="read">${book.read ? "Read" : "Not read yet"}</p>
+    <input type="checkbox" onclick="toggleRead(${i})"  ${
+      book.read ? 'checked="checked"' : ""
+    }/>
     <button class="btn-remove" onclick="removeBook(${i})">x<button/>
   </div>`;
     libraryContainer.append(bookCard);
   }
 };
-//   myLibrary.forEach((book) => {
-//     let bookCard = document.createElement("div");
-//     bookCard.innerHTML = `<div class="card-header">
-//       <h3 class="title">${book.title}</h3>
-//       <h5 class="author">By: ${book.author}</h5>
-//     </div>
-//     <div class="card-body">
-//       <p>${book.pages} pages</p>
-//       <p class="read">${book.read ? "Read" : "Not read yet"}</p>
-//       <button class="btn-remove" onclick="removeBook()">x<button/>
-//     </div>`;
-//     libraryContainer.append(bookCard);
-//   });
-// };
 
 const removeBook = (index) => {
   myLibrary.splice(index, 1);
@@ -56,6 +45,19 @@ const addBookToLibrary = () => {
 
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+
+  libraryContainer.innerHTML = "";
+  render();
+};
+//LMAO CODE:
+//We add a new method to the prototype to a class:
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
+const toggleRead = (index) => {
+  myLibrary[index].toggleRead();
+
   libraryContainer.innerHTML = "";
   render();
 };
