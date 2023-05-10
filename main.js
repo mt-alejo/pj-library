@@ -11,21 +11,41 @@ class Book {
 let libraryContainer = document.querySelector("#library-container");
 
 const render = () => {
-  // for (let i = 0; i < myLibrary.length; i++) {
-  //   console.log("works");
-  // }
-  myLibrary.forEach((book) => {
+  for (let i = 0; i < myLibrary.length; i++) {
+    let book = myLibrary[i];
     let bookCard = document.createElement("div");
     bookCard.innerHTML = `<div class="card-header">
-      <h3 class="title">${book.title}</h3>
-      <h5 class="author">By: ${book.author}</h5>
-    </div>
-    <div class="card-body">
-      <p>${book.pages} pages</p>
-      <p class="read">${book.read ? "Read" : "Not read yet"}</p>
-    </div>`;
+    <h3 class="title">${book.title}</h3>
+    <h5 class="author">By: ${book.author}</h5>
+  </div>
+  <div class="card-body">
+    <p>${book.pages} pages</p>
+    <p class="read">${book.read ? "Read" : "Not read yet"}</p>
+    <button class="btn-remove" onclick="removeBook(${i})">x<button/>
+  </div>`;
     libraryContainer.append(bookCard);
-  });
+  }
+};
+//   myLibrary.forEach((book) => {
+//     let bookCard = document.createElement("div");
+//     bookCard.innerHTML = `<div class="card-header">
+//       <h3 class="title">${book.title}</h3>
+//       <h5 class="author">By: ${book.author}</h5>
+//     </div>
+//     <div class="card-body">
+//       <p>${book.pages} pages</p>
+//       <p class="read">${book.read ? "Read" : "Not read yet"}</p>
+//       <button class="btn-remove" onclick="removeBook()">x<button/>
+//     </div>`;
+//     libraryContainer.append(bookCard);
+//   });
+// };
+
+const removeBook = (index) => {
+  myLibrary.splice(index, 1);
+
+  libraryContainer.innerHTML = "";
+  render();
 };
 
 const addBookToLibrary = () => {
