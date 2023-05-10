@@ -12,20 +12,24 @@ class Book {
 const libraryElement = document.querySelector("#library-container");
 
 const render = () => {
-  /*<div class="book-card">
-  <div class="book-card-text">
-    <h1>Puss in bots</h1>
-    <p>By: Author</p>
-    <p>Pages: 00</p>
-    <p>ENGLISH</p>
-  </div>
-  <div class="book-card-inputs">
-    <button type="button" class="btn-close">x</button>
-    <label class="switch">
-      <input id="input-switch" type="checkbox" />
-      <span class="slider round"></span>
-    </label>
-  </div>  */
+  for (let index = 0; index < library.length; index++) {
+    let book = library[index];
+    libraryElement.innerHTML = `   
+      <div class="book-card">
+        <div class="book-card-text">
+          <h1>${book.title}</h1>
+          <p>By: ${book.author}</p>
+          <p>Pages: ${book.pages}</p>
+          <p>${book.language}</p>
+        </div>
+        <div class="book-card-inputs">
+          <button type="button" class="btn-close">x</button>
+          <label class="switch">
+            <input id="input-switch" type="checkbox"/>
+            <span class="slider round"></span>
+          </label>
+        </div> `;
+  }
 };
 
 const addBook = () => {
@@ -33,10 +37,14 @@ const addBook = () => {
   let author = document.querySelector("#author").value;
   let pages = document.querySelector("#pages").value;
   let language = document.querySelector("#language").value;
-  let read = document.querySelector("#read").value;
+  let read = document.querySelector("#read").checked;
 
   const newBook = new Book(title, author, pages, language, read);
   library.push(newBook);
+
+  libraryElement.innerHTML = "";
+  render();
+  formContainer.style.display = "none";
 };
 
 const formContainer = document.querySelector("#form-container");
