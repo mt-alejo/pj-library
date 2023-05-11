@@ -25,7 +25,7 @@ const render = () => {
           <p>${book.language}</p>
         </div>
         <div class="book-card-inputs">
-          <button type="button" onclick="removeCard(${index})" class="btn-close">x</button>
+          <button type="button" onclick="removeCard(${index})" class="btn-close">✖</button>
           <label class="switch">
             <input id="input-switch" onclick="toggleRead(${index})" type="checkbox" ${
       book.read ? 'checked="checked"' : ""
@@ -76,16 +76,21 @@ formContainer.addEventListener("submit", () => {
   event.preventDefault();
   addBook();
   console.log(library);
+  document.querySelector("section").style.filter = "blur(0px)";
   formContainer.reset();
 });
 
 const btnOpenForm = document
   .querySelector("#open-form-btn")
-  .addEventListener("click", () => (formContainer.style.display = "block"));
+  .addEventListener("click", () => {
+    document.querySelector("section").style.filter = "blur(5px)";
+    formContainer.style.display = "block";
+  });
 
 const btnCloseForm = document
   .querySelector("#close-form-btn")
   .addEventListener("click", () => {
+    document.querySelector("section").style.filter = "blur(0px)";
     formContainer.style.display = "none";
     formContainer.reset();
   });

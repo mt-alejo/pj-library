@@ -77,19 +77,22 @@ input:focus {
 }
 
 #close-form-btn {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
   position: absolute;
   top: 3%;
   left: 90%;
-  background-color: transparent;
+  background-color: var(--green);
   border: none;
-  color: var(--green);
-  font-size: 20px;
+  color: azure;
+  font-size: 15px;
   transition: 0.5s;
   border: 1px solid transparent;
 }
 
 #close-form-btn:hover {
-  background-color: var(--bk-gray);
+  border: 1px solid #536142;
   transition: 0.5s;
 }
 
