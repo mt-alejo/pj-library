@@ -104,6 +104,10 @@ h1 {
 
 .book-card-text p {
   font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }
 
 .book-card-inputs {
